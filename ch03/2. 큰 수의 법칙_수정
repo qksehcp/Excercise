@@ -1,0 +1,15 @@
+N, M, K = map(int, input().split())
+num_list = list(map(int, input().split()))
+
+num_list.sort()
+
+max_1st = num_list[-1]
+max_2nd = num_list[-2]
+
+count_1st = M // K * K
+count_2nd = M % K
+
+
+result = max_1st * count_1st + max_2nd * count_2nd
+
+print(result)
