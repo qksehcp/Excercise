@@ -1,0 +1,19 @@
+# 1이 될 때까지
+# 난이도 1 | 시간제한 1초 | 메모리 제한 128MB | 기출 2018 E 기업 알고리즘 대회
+
+N, K = map(int, input().split())
+
+count = 0
+while True:
+
+  if N == 1:
+    break
+  
+  if N % K == 0:
+    N //= K
+    count += 1
+  else:
+    N -= 1
+    count += 1
+
+print(count)
