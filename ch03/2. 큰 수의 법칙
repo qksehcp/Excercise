@@ -1,0 +1,29 @@
+N, M, K = map(int, input().split())
+num_list = list(map(int, input().split()))
+
+def find_max_index(num_list):
+
+  max_1st = num_list[0]
+  for num in num_list:
+    if num >= max_1st:
+      max_2nd = max_1st
+      max_1st = num
+  
+  return (max_1st, max_2nd)
+
+(max_1st, max_2nd) = find_max_index(num_list)
+num_len = M
+max_iter = K
+result = []
+
+for _ in range(M):
+
+  if max_iter > 0:
+    result.append(max_1st)
+    max_iter -= 1
+
+  elif max_iter == 0:
+    result.append(max_2nd)
+    max_iter = K
+
+print(sum(result))
