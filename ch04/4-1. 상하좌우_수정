@@ -1,0 +1,25 @@
+# 예제 4-1 상하좌우
+# 난이도 1 | 풀이 시간 15분 | 시간 제한 1초 | 메모리 제한 128MB
+N = int(input())
+M = list(map(str, input().split()))
+
+x,y = 1,1
+
+dx = [-1,1,0,0]
+dy = [0,0,-1,1]
+move_type = ['U','D','L','R']
+
+for move in M:
+
+  idx = move_type.index(move)
+  nx = x + dx[idx]
+  ny = y + dy[idx]
+
+  if (nx > N) or (nx < 1) or (ny < 1) or (ny > N):
+    continue
+
+  x, y = nx, ny
+
+print(x,y)
+
+  
