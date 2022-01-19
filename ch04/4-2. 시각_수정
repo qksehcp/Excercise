@@ -1,0 +1,14 @@
+# 예제 4-2 시각
+# 난이도 1 | 풀이 시간 15분 | 시간 제한 2초 | 메모리 제한 128MB
+
+N = int(input())
+
+count = 0
+
+for h in range(N+1):
+  for m in range(60):
+    for s in range(60):
+
+      if '3' in str(h)+str(m)+str(s):
+        count +=1
+print(count)
