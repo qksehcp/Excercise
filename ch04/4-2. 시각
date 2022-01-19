@@ -1,0 +1,16 @@
+# 예제 4-2 시각
+# 난이도 1 | 풀이 시간 15분 | 시간 제한 2초 | 메모리 제한 128MB
+
+N = int(input())
+
+hour = list(range(N+1))
+min_sec = list(range(60))
+total = len(hour) * (len(min_sec)**2)
+
+num3 = [3,13,23,43,53]
+num3.extend(list(range(30,40)))
+
+hour = len([i for i in hour if i not in [3,13,23]])
+min_sec = len([i for i in min_sec if i not in num3])
+
+print(total - (hour * (min_sec**2)))
