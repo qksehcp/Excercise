@@ -1,0 +1,19 @@
+# 실전 문제 2 왕실의 나이트
+# 난이도 1 | 풀이 시간 20분 | 시간 제한 1초 | 메모리 제한 128MB
+
+position = input()
+x, y = int(ord(position[0]))-int(ord('a'))+1, int(position[1])
+
+
+steps = [(i,j) for j in [-1,1] for i in [-2,2]] + \
+        [(i,j) for j in [-2,2] for i in [-1,1]]
+cnt = 0
+for step in steps:
+  dx = x + step[0]
+  dy = y + step[1]
+
+  if 0<dx<9 and 0<dy<9:
+    cnt+=1
+
+print(cnt)
+  
