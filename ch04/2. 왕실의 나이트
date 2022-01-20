@@ -1,0 +1,29 @@
+# 실전 문제 2 왕실의 나이트
+# 난이도 1 | 풀이 시간 20분 | 시간 제한 1초 | 메모리 제한 128MB
+
+position = input()
+x, y = position[0], int(position[1])
+
+xs = 'abcdefgh'
+x = xs.index(x)+1
+
+move1 = [-2,2]
+move2 = [-1,1]
+
+cnt = 0
+for move_2 in move1:
+
+  for move_1 in move2:
+    dx, dy = x,y
+    dx += move_2
+    dy += move_1
+    if (dx>0) and (dx<9) and (dy>0) and (dy<9):
+      cnt += 1
+  
+  for move_1 in move2:
+    dx, dy = x,y
+    dy += move_2
+    dx += move_1
+    if (dx>0) and (dx<9) and (dy>0) and (dy<9):
+      cnt += 1
+print(cnt)
