@@ -1,0 +1,56 @@
+# 실전 문제 3 게임 개발
+# 난이도 2 | 풀이 시간 40분 | 시간 제한 1초 | 메모리 제한 128MB
+
+N,M = map(int, input().split())
+A,B,d = map(int, input().split())
+
+map_info = []
+
+for _ in range(N):
+  map_info.append(list(map(int, input().split())))
+
+move = [(0,-1),(1,0),(0,1),(-1,0)]
+direction = [0,1,2,3]
+history = [[0 for _ in range(M)] for _ in range(N)]
+x, y = A, B
+
+history[x][y] = 1
+visit = 1
+
+turn = 0
+while True:
+
+  next_d = direction[d-1]
+  dx = x + move[next_d][0]
+  dy = y + move[next_d][1]
+  
+  if map_info[dx][dy] != 1 and history[dx][dy] != 1:
+    visit += 1
+    history[dx][dy] = 1
+    x, y = dx, dy
+    d = next_d
+    turn = 0
+    continue
+
+  elif map_info[dx][dy] != 1 and history[dx][dy] == 1:
+    d = next_d
+    turn += 1
+    continue
+
+  if turn == 4:
+    d = next_d
+    dx = x - move[d][0]
+    dy = y - move[d][1]
+  
+    if map_info[dx][dy] == 1:
+      break
+    else:
+      x, y = dx, dy
+      history[x][y] = 1
+    turn = 0  
+
+      
+print(visit)    
+      
+
+  
